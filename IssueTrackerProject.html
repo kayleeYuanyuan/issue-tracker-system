@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Issues Tracker</title>
+    <link href="css/IssueTrackerProject.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container1-wrapper">
+            <div class="container_logo">
+                <strong>Logo</strong>
+            </div>
+            <div class="container_name">
+                <h3>Project Name</h3>
+            </div>
+            <div class="container_user">
+
+            </div>
+        </div>
+        <div class="container-wrapper2">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="searchContent" placeholder="Searching...">
+                <i class="fas fa-times clear-icon" id="clear"></i>
+            </div>
+        </div>
+        <div class="container-wrapper3">
+            <div class="status_container">
+                <label>Status</label>
+                <select id="status" name="status">
+                    <option value="open">Open</option>
+                    <option value="close">Close</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
+            <div class="priority_container">
+                <label>Priority</label>
+                <select id="priority" name="priority">
+                    <option value="">All</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                    <option value="delayed">Delayed</option>
+                </select>
+            </div>
+            <div class="time_container">
+                <label>Time</label>
+                <select id="time" name="time">
+                    <option value="update">Updated</option>
+                    <option value="create">Created</option>
+                    <option value="due">Due</option>
+                </select>
+            </div>
+            <div class="timeSort_container">
+                <label>Sort</label>
+                <select id="timeSort" name="timeSort">
+                    <option value="descending">Descending</option>
+                    <option value="ascending">Ascending</option>
+                </select>
+            </div>
+        </div>
+        <div class="containerNavbar">
+            <div class="containerNavbar-wrapper1">
+                <button type="submit" id="create">Create Issue</button>
+            </div>
+            <div class="containerNavbar-wrapper2">
+                <button type="submit">Export</button>
+            </div>
+        </div>
+        <div class="scrollingContainer">
+            <div class="scrollingContainer-wrapper" id="infoContent">
+
+            </div>
+            <div class="banner">
+
+            </div>
+        </div>
+    </div>
+    <form method="post" enctype="multipart/form-data" class="dropzone" style="display:none;">
+        <div class="container">
+            <div class="container-info">
+                <div class="issueName">
+                    <label>Issue name: </label>
+                    <input type="text" id="issueName" />
+                </div>
+                <div class="dueDate">
+                    <label>Due date: </label>
+                    <input type="date" id="dueDate" />
+                </div>
+                <div class="assign">
+                    <label>Assigned To: </label>
+                    <input type="text" id="assignTo" />
+                </div>
+            </div>
+
+            <div class="advanceInfo">
+                <div class="selectButton">
+                    <div class="category">
+                        <select id="category" name="category">
+                            <option value="">Select categoty</option>
+                            <option value="Bug">Bug</option>
+                            <option value="Improvement">Improvement</option>
+                            <option value="Feature">New Feature</option>
+                            <option value="Research">Research</option>
+                            <option value="Testing">Testing</option>
+                        </select>
+                    </div>
+                    <div class="priority">
+                        <select id="priority_choose" name="priority">
+                            <option value="">Select priority</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                            <option value="delayed">Delayed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="descriptionBox">
+                        <label>Description：</label>
+                        <div class="flex_textarea" id="description" contenteditable="true" onpaste="return pasteListener(event)"></div>
+                    </div>
+                </div>
+                <div class="uploadImages">
+                    <div class="imagesButton">
+                        <label>Upload images：</label>
+                        <div class="dragBox" id="drag">
+                            <div class="btn" id="btn">Drag an image here or choose an image to upload</div>
+                            <input type="file" id="image" name="image" accept="image/*" multiple style="display: none;">
+                        </div>
+                    </div>
+                    <div id="imagePreview">
+
+                    </div>
+                    <div id="modal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modalImage">
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="submitButton">
+                    <button type="button" id="submit">Submit</button>
+                    <button type="button" id="update">Update</button>
+                </div>
+                <div class="cancelButton">
+                    <button type="button" id="cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="js/Config.js" type="text/javascript"></script>
+    <script src="js/IssueTrackerProject.js" type="text/javascript"></script>
+</body>
+</html>
